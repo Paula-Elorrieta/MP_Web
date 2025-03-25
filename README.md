@@ -1,1 +1,1 @@
-Mirari - Paula Web Proiektua
+Mirari eta Paula - Web Aplikazioa
