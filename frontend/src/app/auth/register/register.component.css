@@ -1,0 +1,81 @@
+body, html {
+	height: 100%;
+	margin: 0;
+  }
+
+  * {
+	box-sizing: border-box;
+	font-family: Arial !important;
+  }
+
+  .register-container {
+	display: flex;
+	height: 100vh;
+	align-items: center;
+	justify-content: center;
+  }
+
+  .register-box {
+	background: rgba(0, 0, 0, 0.555);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	padding: 30px;
+	border-radius: 10px;
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+	width: 350px;
+	text-align: center;
+  }
+
+  .logo {
+	width: 120px;
+	margin-bottom: 10px;
+  }
+
+  h2 {
+	color: #d3ffd5;
+	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  }
+
+  input {
+	width: 100%;
+	padding: 10px;
+	margin: 10px 0;
+	border: 1px solid rgba(255, 255, 255, 0.5);
+	border-radius: 5px;
+	background: rgba(255, 255, 255, 0.2);
+	color: #fff;
+  }
+
+  input::placeholder {
+	color: rgba(255, 255, 255, 0.7);
+  }
+
+  .register-btn {
+	width: 100%;
+	padding: 10px;
+	background: #43a047;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+  }
+
+  .register-btn:hover {
+	background: #388e3c;
+  }
+
+  .options {
+	margin-top: 15px;
+  }
+
+  .options a {
+	display: block;
+	margin: 5px 0;
+	color: #d3ffd5;
+	text-decoration: none;
+	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  }
+
+  .options a:hover {
+	text-decoration: underline;
+  }

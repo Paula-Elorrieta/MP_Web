@@ -1,0 +1,17 @@
+<body style="background: url('img/fondo.jpg') no-repeat center center/cover">
+  <div class="login-container">
+    <div class="login-box">
+      <img src="img/logo.png" alt="BooksLive Logo" class="logo" />
+      <h2>Login</h2>
+      <form (submit)="login()">
+        <input type="text" placeholder="Erabltzailea*" [(ngModel)]="user.erabiltzailea" name="erabiltzailea" required>
+        <input type="password" placeholder="Pasahitza*" [(ngModel)]="user.pasahitza" name="pasahitza" required>
+        <button type="submit" class="login-btn">Sartu</button>
+      </form>
+      <div class="options">
+        <a routerLink="/auth/register" id="register">Erregistratu hemen</a>
+        <a href="#"  (click)="gonbidatuSartu($event)" class="guest">Sartu logueatu gabe!</a>
+      </div>
+    </div>
+  </div>
+</body>

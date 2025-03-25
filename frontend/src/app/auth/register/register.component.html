@@ -1,0 +1,21 @@
+<div class="register-container" style="background: url('img/fondo.jpg') no-repeat center center/cover">
+	<div class="register-box">
+	  <img src="img/logo.png" alt="Logo" class="logo">
+	  <h2>Erregistratu</h2>
+
+	  <form (submit)="erregistratu()">
+		<input type="text" placeholder="Izen Abizena*" [(ngModel)]="user.izena_abizena" name="izena_abizena" required>
+		<input type="text" placeholder="Erabltzailea*" [(ngModel)]="user.erabiltzailea" name="erabiltzailea" required>
+		<input type="email" placeholder="Email*" [(ngModel)]="user.email" name="email" required>
+		<input type="password" placeholder="Pasahitza*" [(ngModel)]="user.pasahitza" name="pasahitza" required>
+		<input type="date" [(ngModel)]="user.jaiotza_data" [max]="maxData" name="jaiotza_data" required>
+		<input type="text" placeholder="Helbidea" [(ngModel)]="user.helbidea" name="helbidea">
+
+		<button type="submit" class="register-btn">Erregistratu</button>
+	  </form>
+
+	  <div class="options">
+		<a routerLink="/auth/login">Daukazu kontua? Logueatu hemen</a>
+	  </div>
+	</div>
+  </div>
