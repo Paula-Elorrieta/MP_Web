@@ -1,15 +1,35 @@
 <nav class="navbar">
-  <div
-    class="navbar-container"
-    style="background: url('img/fondo.jpg') no-repeat center center/cover"
-  >
-    <a class="navbar-logo" href="/pages/home">
-      <img src="img/logoBeltz.png" alt="Logo" />
+  <div class="navbar-container">
+    <a class="navbar-logo" routerLink="/pages/home">
+      <img src="img/logotextugabe.png" alt="Logo" />
     </a>
-    <ul class="navbar-links">
-      <li><a routerLink="/pages/home">Hasiera</a></li>
-      <li><a routerLink="/pages/komunitatea">Komunitatea</a></li>
-      <li><a routerLink="/pages/profile">Profila</a></li>
-    </ul>
+
+    <div class="navbar-search">
+      <select>
+        <option>Liburuak</option>
+        <option>Erabiltzaileak</option>
+      </select>
+      <input type="text" placeholder="Bilatu erabiltzaileak edo liburuak" />
+    </div>
+
+    <div class="navbar-actions">
+      <a class="action-link" routerLink="/pages/register">Erregistratu</a>
+      <span>|</span>
+      <a class="action-link" routerLink="/pages/login">Logueatu</a>
+      <button class="sell-btn">Saldu orain</button>
+      <div class="lang-select">
+        <select>
+          <option>ES</option>
+          <option>EU</option>
+          <option>EN</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="navbar-categories">
+    <a routerLink="/pages/home">Hasiera</a>
+    <a routerLink="/pages/komunitatea">Komunitatea</a>
+    <a routerLink="/pages/profile">Profila</a>
   </div>
 </nav>

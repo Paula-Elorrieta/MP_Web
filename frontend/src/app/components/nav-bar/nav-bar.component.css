@@ -1,67 +1,106 @@
 * {
-  font-family: Arial;
+  font-family: Arial, sans-serif;
 }
 
 .navbar {
-  color: #d3ffd5;
+  background-color: #388e3c;
+  border-radius: 20px;
+}
 
-  .navbar-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem;
-    border-radius: 20px 20px;
-  }
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
 
-  .navbar-logo {
-    display: flex;
-    align-items: center;
-    color: #d3ffd5;
-    text-decoration: none;
+.navbar-logo img {
+  height: 40px;
+}
 
-    img {
-      width: 80px;
-      height: 80px;
-      margin-right: 10px;
-    }
+.navbar-search {
+  display: flex;
+  flex-grow: 1;
+  max-width: 800px;
+  margin: 0 20px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  overflow: hidden;
+}
 
-    span {
-      font-size: 20px;
-      font-weight: bold;
-    }
-  }
+.navbar-search select,
+.navbar-search input {
+  border: none;
+  padding: 10px;
+  outline: none;
+  background: none;
+}
 
-  .navbar-links {
-    list-style: none;
-    font-size: 20px;
-    display: flex;
+.navbar-search select {
+  background-color: #e5e5e5;
+  font-weight: bold;
+}
 
-    li {
-      margin-left: 50px;
-    }
+.navbar-search input {
+  flex: 1;
+}
 
-    a {
-      color: #d3ffd5;
-      text-decoration: none;
-      font-weight: normal;
-      transition: color 0.3s ease;
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
-      &:hover {
-        color: #769677;
-      }
-    }
-  }
+.action-link {
+  color: #253025;
+  text-decoration: none;
+  font-weight: bold;
+}
 
-  .navbar-profile {
-    color: #d3ffd5;
-    text-decoration: none;
-    font-weight: normal;
-    font-size: 20px;
-    margin-left: 2rem;
-    transition: color 0.3s ease;
+.action-link:hover {
+  text-decoration: underline;
+}
 
-    &:hover {
-      color: #43a047;
-    }
-  }
+.sell-btn {
+  background-color: #233523;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+}
+
+.sell-btn:hover {
+  background-color: #365336;
+}
+
+.lang-select select {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 5px;
+  font-weight: bold;
+}
+
+.navbar-categories {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px 0;
+  background-color: #388e3c;
+  font-size: 18px;
+  border-radius: 20px;
+}
+
+.navbar-categories a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-weight: bold;
+}
+
+.navbar-categories a:hover {
+  text-decoration: underline;
 }
