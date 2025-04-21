@@ -1,0 +1,44 @@
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { Liburua } from '../../interfaces/liburua';
+import { QueryService } from '../../services/query.service';
+
+@Component({
+  selector: 'app-salmenta',
+  imports: [CommonModule],
+  templateUrl: './salmenta.component.html',
+  styleUrl: './salmenta.component.css',
+})
+export class SalmentaComponent {
+  liburuak: Liburua[] = [];
+  saltzaileak: any[] = [];
+  saltzailea: any = {
+    izena_abizena: '',
+    email: '',
+    pasahitza: '',
+    erabiltzailea: '',
+  };
+
+  constructor(private queryService: QueryService) {}
+  ngOnInit() {
+    this.queryService.getUsers().subscribe((response) => {
+      this.saltzaileak = response.users;
+      console.log(this.saltzaileak);
+    });
+
+    this.queryService.getLiburuak().subscribe((response) => {
+      this.liburuak = response.liburuak;
+      console.log(this.liburuak);
+
+      this.liburuak.forEach((liburua) => {
+        for (let i = 0; i < this.saltzaileak.length; i++) {
+          if (liburua.user_id === this.saltzaileak[i].user_id) {
+            this.saltzailea = this.saltzaileak[i];
+            liburua.saltzaile_izena = this.saltzailea.izena_abizena;
+            break;
+          }
+        }
+      });
+    });
+  }
+}

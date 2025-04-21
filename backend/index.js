@@ -60,7 +60,6 @@ app.post("/erregistratu", (req, res) => {
     helbidea,
   } = req.body;
 
-
   if (
     !izena_abizena ||
     !email ||
@@ -99,7 +98,9 @@ app.post("/erregistratu", (req, res) => {
         helbidea,
       };
 
-      return res.status(201).json({ message: "Sartu da ondo", user: userBerria });
+      return res
+        .status(201)
+        .json({ message: "Sartu da ondo", user: userBerria });
     }
   );
 });
@@ -117,7 +118,33 @@ app.get("/get-users", (req, res) => {
   });
 });
 
+app.get("/get-salmentak", (req, res) => {
+  const query = "SELECT * FROM salmenta";
+
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error("Errorea salmentak jasotzean:", err);
+      return res.status(500).json({ message: "Errorea zerbitzarian" });
+    }
+
+    return res.status(200).json({ salmentak: results });
+  });
+});
+
 const PORT = 3001;
 app.listen(PORT, () => {
   console.log(`Zerbitzaria http://localhost:${PORT}-n martxan dago`);
+});
+
+app.get("/get-liburuak", (req, res) => {
+  const query = "SELECT * FROM liburua";
+
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error("Errorea liburuak jasotzean:", err);
+      return res.status(500).json({ message: "Errorea zerbitzarian" });
+    }
+
+    return res.status(200).json({ liburuak: results });
+  });
 });

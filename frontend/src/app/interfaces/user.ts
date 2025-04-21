@@ -4,6 +4,6 @@ export interface User {
   email: string;
   pasahitza: string;
   erabiltzailea: string;
-  jaiotza_data: Date;
+  jaiotza_data?: Date;
   helbidea?: string;
 }

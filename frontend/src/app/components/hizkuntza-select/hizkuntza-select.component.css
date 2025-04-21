@@ -1,0 +1,7 @@
+.lang-select select {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 5px;
+  font-weight: bold;
+}

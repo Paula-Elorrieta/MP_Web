@@ -1,0 +1,72 @@
+.salmenta-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+.salmenta-card {
+  width: 100%;
+  max-width: 220px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.582);
+  font-family: sans-serif;
+  background-color: white;
+  flex-grow: 1;
+  flex-basis: calc(33.333% - 32px);
+}
+
+@media (max-width: 900px) {
+  .salmenta-card {
+    flex-basis: calc(50% - 32px);
+  }
+}
+
+@media (max-width: 600px) {
+  .salmenta-card {
+    flex-basis: 100%;
+  }
+}
+
+.salmenta-image img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+}
+
+.salmenta-info {
+  padding: 10px;
+}
+
+.salmenta-prezioa {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.salmenta-tituloa {
+  font-size: 14px;
+  margin: 4px 0;
+}
+
+.etiketa {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: #3c8dbc;
+  margin: 6px 0;
+}
+
+.salmenta-generoa {
+  font-size: 12px;
+  color: #666;
+}
+
+.saltzailea {
+  font-size: 12px;
+  margin-top: 8px;
+  color: #333;
+}

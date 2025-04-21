@@ -5,11 +5,7 @@
     </a>
 
     <div class="navbar-search">
-      <select>
-        <option>Liburuak</option>
-        <option>Erabiltzaileak</option>
-      </select>
-      <input type="text" placeholder="Bilatu erabiltzaileak edo liburuak" />
+      <app-bilaketa></app-bilaketa>
     </div>
 
     <div class="navbar-actions">
@@ -17,13 +13,7 @@
       <span>|</span>
       <a class="action-link" routerLink="/pages/login">Logueatu</a>
       <button class="sell-btn">Saldu orain</button>
-      <div class="lang-select">
-        <select>
-          <option>ES</option>
-          <option>EU</option>
-          <option>EN</option>
-        </select>
-      </div>
+      <app-hizkuntza-select></app-hizkuntza-select>
     </div>
   </div>
 

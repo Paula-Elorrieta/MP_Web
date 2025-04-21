@@ -1,0 +1,18 @@
+<div class="salmenta-wrapper">
+  <div *ngFor="let liburu of liburuak" class="salmenta-card">
+    <div class="salmenta-image">
+      <!-- <img [src]="liburua.irudia" [alt]="liburua.titulua" /> -->
+    </div>
+    <div class="salmenta-info">
+      <p class="salmenta-prezioa">{{ liburu.prezioa }} EUR</p>
+      <h3 class="salmenta-tituloa">{{ liburu.tituloa }}</h3>
+      <div class="etiketa">
+        <span>{{ liburu.idazlea }}</span>
+      </div>
+      <p class="salmenta-generoa">{{ liburu.generoa }}</p>
+      <p class="saltzailea">
+        Saltzailea: <strong>{{ liburu.saltzaile_izena }}</strong>
+      </p>
+    </div>
+  </div>
+</div>
