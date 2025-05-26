@@ -21,8 +21,74 @@
 .navbar-actions {
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: flex-end;
+  gap: 16px;
+  padding: 0 10px;
+  flex-wrap: wrap;
 }
+
+.navbar-actions strong {
+  color: #000000;
+  margin-right: 8px;
+}
+
+.notifikazio-img {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.sell-btn {
+  background-color: #0077cc;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  margin-left: 7px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.sell-btn:hover {
+  background-color: #005fa3;
+}
+
+.logout-btn {
+  background-color: #ff4d4d;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  margin-left: 7px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.logout-btn:hover {
+  background-color: #e60000;
+}
+
+.action-link {
+  color: #0077cc;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.action-link:hover {
+  color: #005fa3;
+}
+
+.navbar-actions span {
+  color: #999;
+  font-size: 14px;
+}
+
 
 .action-link {
   color: #253025;

@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
 import { User } from '../../interfaces/user';
+import { AuthService } from '../../services/auth.service';
 import { QueryService } from '../../services/query.service';
 
 @Component({
@@ -13,6 +13,7 @@ import { QueryService } from '../../services/query.service';
 })
 export class RegisterComponent implements OnInit {
   user = {
+    user_id: null,
     userId: 0,
     izena_abizena: '',
     email: '',

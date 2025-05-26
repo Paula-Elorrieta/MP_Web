@@ -7,4 +7,5 @@ export interface Liburua {
   egoera: 'berria' | 'erdi-berria' | 'erabilita' | 'defektuekin';
   user_id?: number;
   saltzaile_izena?: string;
+  irudia: string;
 }

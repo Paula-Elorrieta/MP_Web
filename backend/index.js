@@ -148,3 +148,108 @@ app.get("/get-liburuak", (req, res) => {
     return res.status(200).json({ liburuak: results });
   });
 });
+
+app.get("/get-liburua/:id", (req, res) => {
+  const liburuaId = req.params.id;
+  const query = "SELECT * FROM liburua WHERE liburu_id = ?";
+
+  db.query(query, [liburuaId], (err, results) => {
+    if (err) {
+      console.error("Errorea liburua jasotzean:", err);
+      return res.status(500).json({ message: "Errorea zerbitzarian" });
+    }
+
+    if (results.length === 0) {
+      return res.status(404).json({ message: "Liburua ez da aurkitu" });
+    }
+
+    return res.status(200).json({ liburua: results[0] });
+  });
+});
+
+app.post("/sortu-notifikazioa", (req, res) => {
+  const { liburu_id, saltzailea_id, eroslea_id, mezua } = req.body;
+
+  const insert = `
+    INSERT INTO NOTIFIKAZIOA (liburu_id, saltzailea_id, erosketa_egilea_id, egoera, mezua)
+    VALUES (?, ?, ?, 'zain', ?)
+  `;
+
+  db.query(
+    insert,
+    [liburu_id, saltzailea_id, eroslea_id, mezua],
+    (err, result) => {
+      if (err) {
+        console.error("Errorea eskaera gordetzean:", err);
+        return res.status(500).json({ message: "Errorea" });
+      }
+      return res.status(200).json({ message: "Eskaera gordea" });
+    }
+  );
+});
+
+app.get("/get-notifikazioak/:userId", (req, res) => {
+  const userId = req.params.userId;
+
+  const query = `
+    SELECT *
+    FROM NOTIFIKAZIOA n
+    WHERE n.saltzailea_id = ?
+  `;
+
+  db.query(query, [userId], (err, results) => {
+    if (err) return res.status(500).json({ message: "Errorea" });
+    res.status(200).json({ notifikazioak: results });
+  });
+});
+
+app.post("/onartu-eskaera", (req, res) => {
+  const { notifikazioa_id, liburu_id, saltzaile_id } = req.body;
+
+  const updateQuery =
+    "UPDATE liburua SET egoera = 'saldua' WHERE liburu_id = ?";
+  db.query(updateQuery, [liburu_id], (err1) => {
+    if (err1) {
+      console.error("Errorea liburua eguneratzean:", err1);
+      return res.status(500).json({ message: "Errorea liburua eguneratzean" });
+    }
+
+    const insertQuery =
+      "INSERT INTO SALMENTA (saltzaile_id, liburu_id) VALUES (?, ?)";
+    db.query(insertQuery, [saltzaile_id, liburu_id], (err2) => {
+      if (err2) {
+        console.error("Errorea salmenta gordetzean:", err2);
+        return res.status(500).json({ message: "Errorea salmenta gordetzean" });
+      }
+
+      const updateNotif =
+        "UPDATE NOTIFIKAZIOA SET egoera = 'onartua' WHERE id = ?";
+      db.query(updateNotif, [notifikazioa_id], (err3) => {
+        if (err3) {
+          console.error("Errorea notifikazioa eguneratzean:", err3);
+          return res
+            .status(500)
+            .json({ message: "Errorea notifikazioa eguneratzean" });
+        }
+
+        return res
+          .status(200)
+          .json({ message: "Eskaria onartua eta salmenta erregistratua" });
+      });
+    });
+  });
+});
+
+app.post("/ukatu-eskaera", (req, res) => {
+  const { notifikazioId } = req.body;
+
+  const updateQuery = "UPDATE NOTIFIKAZIOA SET egoera = 'ezetsia' WHERE id = ?";
+  db.query(updateQuery, [notifikazioId], (err, result) => {
+    if (err) {
+      console.error("Errorea notifikazioa eguneratzean:", err);
+      return res.status(500).json({ message: "Errorea zerbitzarian" });
+    }
+
+    return res.status(200).json({ message: "Eskaria ukatua" });
+  });
+});

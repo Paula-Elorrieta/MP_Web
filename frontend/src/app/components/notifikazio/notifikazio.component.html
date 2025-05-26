@@ -1,0 +1,40 @@
+<div class="notifikazio-container">
+  <div *ngFor="let notifikazioa of notifikazioak" class="notifikazio-card">
+    <p class="mezua"><strong>Mezua:</strong> {{ notifikazioa.mezua }}</p>
+    <p><strong>Nork bidali du:</strong> {{ notifikazioa.saltzaile_izena }}</p>
+    <p *ngIf="notifikazioa.saltzaile_email">
+      <strong>Saltzaile email-a:</strong> {{ notifikazioa.saltzaile_email }}
+    </p>
+    <p *ngIf="notifikazioa.saltzaile_telefonoa">
+      <strong>Saltzaile telefonoa:</strong>
+      {{ notifikazioa.saltzaile_telefonoa }}
+    </p>
+    <p *ngIf="notifikazioa.saltzaile_helbidea">
+      <strong>Saltzaile helbidea:</strong> {{ notifikazioa.saltzaile_helbidea }}
+    </p>
+    <p>
+      <strong>Data:</strong> {{ notifikazioa.data | date : "dd/MM/yyyy HH:mm" }}
+    </p>
+    <p><strong>Liburua:</strong> {{ notifikazioa.liburua_izena }}</p>
+    <p><strong>Egoera:</strong> {{ notifikazioa.egoera }}</p>
+
+    <div class="notifikazio-buttons">
+      <button
+        class="onartu-btn"
+        [disabled]="notifikazioa.egoera !== 'zain'"
+        [ngClass]="{ 'disabled-btn': notifikazioa.egoera !== 'zain' }"
+        (click)="onartuEskaria(notifikazioa)"
+      >
+        Onartu
+      </button>
+      <button
+        class="ukatu-btn"
+        [disabled]="notifikazioa.egoera !== 'zain'"
+        [ngClass]="{ 'disabled-btn': notifikazioa.egoera !== 'zain' }"
+        (click)="ukatuEskaria(notifikazioa)"
+      >
+        Ukatu
+      </button>
+    </div>
+  </div>
+</div>

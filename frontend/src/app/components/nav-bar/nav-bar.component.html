@@ -9,10 +9,25 @@
     </div>
 
     <div class="navbar-actions">
-      <a class="action-link" routerLink="/pages/register">Erregistratu</a>
-      <span>|</span>
-      <a class="action-link" routerLink="/pages/login">Logueatu</a>
-      <button class="sell-btn">Saldu orain</button>
+      <div *ngIf="erabiltzailea">
+        <strong>{{ userlog.izena_abizena }}</strong>
+        <img
+          src="img/notifikazioa.png"
+          alt="notifikazioak"
+          class="notifikazio-img"
+          (click)="ikusiNotfikazioak(userlog.user_id)"
+          style="cursor: pointer"
+        />
+        <button class="sell-btn">Saldu orain</button>
+        <button class="logout-btn" (click)="logout()">Itxi saioa</button>
+      </div>
+      <div *ngIf="!erabiltzailea">
+        <a class="action-link" routerLink="/auth/login" style="margin-left: 5px"
+          >Logueatu</a
+        >
+        <span>|</span>
+        <a class="action-link" routerLink="/auth/register">Erregistratu</a>
+      </div>
       <app-hizkuntza-select></app-hizkuntza-select>
     </div>
   </div>

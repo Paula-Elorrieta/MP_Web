@@ -1,0 +1,87 @@
+* {
+  font-family: Arial, sans-serif;
+}
+
+.notifikazio-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.notifikazio-card {
+  background-color: #f9f9f9;
+  border-left: 5px solid #388e3c;
+  border-radius: 8px;
+  padding: 15px 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.281);
+}
+
+.notifikazio-card p {
+  margin: 6px 0;
+  font-size: 15px;
+}
+
+.notifikazio-buttons {
+  margin-top: 12px;
+  display: flex;
+  gap: 10px;
+}
+
+.onartu-btn,
+.ukatu-btn {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.onartu-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.onartu-btn:hover {
+  background-color: #218838;
+}
+
+.ukatu-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.ukatu-btn:hover {
+  background-color: #c82333;
+}
+
+.onartu-btn {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.ukatu-btn {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.disabled-btn {
+  background-color: #ccc !important;
+  cursor: not-allowed !important;
+  color: #666 !important;
+}

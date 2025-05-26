@@ -1,14 +1,41 @@
-import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
+import { BilaketaComponent } from '../bilaketa/bilaketa.component';
 import { HizkuntzaSelectComponent } from '../hizkuntza-select/hizkuntza-select.component';
-import { BilaketaComponent } from "../bilaketa/bilaketa.component";
 
 @Component({
   selector: 'app-nav-bar',
-  imports: [RouterLink, HizkuntzaSelectComponent, BilaketaComponent],
+  imports: [
+    RouterLink,
+    HizkuntzaSelectComponent,
+    BilaketaComponent,
+    CommonModule,
+  ],
   templateUrl: './nav-bar.component.html',
-  styleUrl: './nav-bar.component.css'
+  styleUrl: './nav-bar.component.css',
 })
-export class NavBarComponent {
+export class NavBarComponent implements OnInit {
+  constructor(private router: Router) {}
 
+  erabiltzailea: boolean = false;
+  userlog: any = null;
+  ngOnInit(): void {
+    this.userlog = localStorage.getItem('user')
+      ? JSON.parse(localStorage.getItem('user') as string)
+      : null;
+
+    if (this.userlog.user_id) {
+      this.erabiltzailea = true;
+    }
+  }
+
+  ikusiNotfikazioak(id: number) {
+    this.router.navigate(['/pages/notifikazioak', id]);
+  }
+
+  logout() {
+    localStorage.removeItem('user');
+    this.router.navigate(['/auth/login']);
+  }
 }

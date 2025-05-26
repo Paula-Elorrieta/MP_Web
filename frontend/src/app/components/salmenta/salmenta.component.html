@@ -1,7 +1,12 @@
 <div class="salmenta-wrapper">
-  <div *ngFor="let liburu of liburuak" class="salmenta-card">
+  <div
+    *ngFor="let liburu of liburuak"
+    class="salmenta-card"
+    (click)="ikusiXehetasunak(liburu.liburu_id)"
+    style="cursor: pointer"
+  >
     <div class="salmenta-image">
-      <!-- <img [src]="liburua.irudia" [alt]="liburua.titulua" /> -->
+      <img [src]="liburu.irudia | imagePath" alt="irudia" />
     </div>
     <div class="salmenta-info">
       <p class="salmenta-prezioa">{{ liburu.prezioa }} EUR</p>

@@ -1,0 +1,38 @@
+<app-nav-bar></app-nav-bar>
+<div class="salmenta-detail" *ngIf="liburua" style="margin-top: 20px">
+  <div class="vendedor-info">
+    <img src="img/argazki_user.png" alt="Perfil" class="perfil-img" />
+    <div class="vendedor-datos">
+      <h4>{{ liburua.saltzaile_izena }}</h4>
+      <p>{{ liburua.saltzaile_email }}</p>
+    </div>
+  </div>
+
+  <div class="liburu-img">
+    <img [src]="liburua.irudia | imagePath" alt="irudia" />
+  </div>
+
+  <h2 class="prezioa">{{ liburua.prezioa }} €</h2>
+  <h3 class="izenburua">{{ liburua.tituloa }}</h3>
+  <p class="azalpena">{{ liburua.azalpena }}</p>
+
+  <div class="details-section">
+    <h4>Liburu xehetasunak:</h4>
+    <ul>
+      <li><strong>Egoera:</strong> {{ liburua.estado || "Usado" }}</li>
+      <li><strong>Idazlea:</strong> {{ liburua.idazlea }}</li>
+      <li><strong>Generoa:</strong> {{ liburua.generoa }}</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Bidali mezua saltzaileari (aukera):</h3>
+    <textarea
+      [(ngModel)]="mezuaEroslearengandik"
+      rows="4"
+      cols="50"
+      placeholder="Nahi baduzu, idatzi mezu bat..."
+    ></textarea>
+    <br />
+    <button (click)="eskaeraBidali()">Eskatu erosketa</button>
+  </div>
+</div>
